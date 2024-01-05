@@ -2,27 +2,53 @@ import React from 'react';
 import { TodoListProps } from '../types';
 
 const TodoList: React.FC<TodoListProps> = ({ todos, setTodos }) => {
+  const handleDone = (id: string) => () => {
+    setTodos((prevState) =>
+      prevState.map((todo) =>
+        id === todo.id ? { ...todo, done: !todo.done } : todo
+      )
+    );
+  };
+
+  const handleRemove = (id: string) => () => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <div className="px-9 overflow-y-scroll max-h-64 scroll-container w-full">
       <ul>
         {todos.map((todo) => (
           <li
             key={todo.id}
-            className="mb-3"
-            onClick={() =>
-              setTodos((prevState) =>
-                prevState.map((item) =>
-                  todo.id === item.id ? { ...item, done: !item.done } : item
-                )
-              )
-            }
+            className="mb-3 flex justify-between  hover:font-bold"
+            onClick={handleDone(todo.id)}
           >
             <div
-              className={`inline ml-2 hover:font-bold hover:text-gray-700 ${
-                todo.done && 'line-through'
+              className={`inline ml-2 hover:text-gray-700 ${
+                todo.done && 'line-through text-green-600'
               }`}
             >
               {todo.title}
+            </div>
+
+            <div
+              onClick={handleRemove(todo.id)}
+              className="inline text-primary hover:text-gray-700"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="w-5 inline"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
             </div>
           </li>
         ))}
