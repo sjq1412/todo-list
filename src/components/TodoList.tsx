@@ -15,16 +15,16 @@ const TodoList: React.FC<TodoListProps> = ({ todos, setTodos }) => {
   };
 
   return (
-    <div className="px-9 overflow-y-scroll max-h-64 scroll-container w-full">
+    <div className="px-11 xs:sm-9  overflow-y-scroll max-h-64 scroll-container w-full">
       <ul>
         {todos.map((todo) => (
           <li
             key={todo.id}
-            className="mb-3 flex justify-between  hover:font-bold"
+            className="mb-3 flex justify-between  hover:font-bold break-all"
             onClick={handleDone(todo.id)}
           >
             <div
-              className={`inline ml-2 hover:text-gray-700 ${
+              className={`inline mr-6  hover:text-gray-700 ${
                 todo.done && 'line-through text-green-600'
               }`}
             >
