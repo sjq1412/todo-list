@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
 
+import { Todo } from './types';
+
 import Header from './components/Header';
 import TodoForm from './components/TodoForm';
-
-import { Todo } from './types';
+import TodoList from './components/TodoList';
 
 const App = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -27,33 +28,7 @@ const App = () => {
             setTodos={setTodos}
             setNewTodo={setNewTodo}
           />
-          <div className="px-9 overflow-y-scroll max-h-64 scroll-container w-full">
-            <ul>
-              {todos.map((todo) => (
-                <li
-                  key={todo.id}
-                  className="mb-3"
-                  onClick={() =>
-                    setTodos((prevState) =>
-                      prevState.map((item) =>
-                        todo.id === item.id
-                          ? { ...item, done: !item.done }
-                          : item
-                      )
-                    )
-                  }
-                >
-                  <div
-                    className={`inline ml-2 hover:font-bold hover:text-gray-700 ${
-                      todo.done && 'line-through'
-                    }`}
-                  >
-                    {todo.title}
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <TodoList todos={todos} setTodos={setTodos} />
           <div
             className={`absolute bottom-0 flex flex-col  items-center w-full my-6 ${
               !todos.length && 'hidden'

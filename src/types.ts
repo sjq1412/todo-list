@@ -11,3 +11,8 @@ export interface TodoFormProps {
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
   setNewTodo: React.Dispatch<React.SetStateAction<string>>;
 }
+
+export interface TodoListProps {
+  todos: Todo[];
+  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+}
