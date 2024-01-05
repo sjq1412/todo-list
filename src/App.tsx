@@ -6,6 +6,7 @@ import Header from './components/Header';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import EmptyList from './components/EmptyList';
+import Footer from './components/Footer';
 
 const App = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -32,6 +33,7 @@ const App = () => {
           <TodoList todos={todos} setTodos={setTodos} />
           <EmptyList todos={todos} setTodos={setTodos} />
         </div>
+        <Footer />
       </div>
     </div>
   );

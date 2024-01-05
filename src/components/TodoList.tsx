@@ -44,8 +44,8 @@ const TodoList: React.FC<TodoListProps> = ({ todos, setTodos }) => {
                 className="w-5 inline"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M6 18 18 6M6 6l12 12"
                 />
               </svg>
