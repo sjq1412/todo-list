@@ -1,4 +1,4 @@
-# Todo List App
+# Todo List App [https://sjq1412.github.io/todo-list/]
 
 A simple Todo List application built with React and TypeScript. Manage your tasks efficiently and stay organized.
 
@@ -91,7 +91,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Preview
 
-[Add screenshots or GIFs showcasing your TodoList application]
+![App Screenshot](/public/images/screenshot.png)
 
 ---
 
