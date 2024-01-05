@@ -5,6 +5,7 @@ import { Todo } from './types';
 import Header from './components/Header';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
+import EmptyList from './components/EmptyList';
 
 const App = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -29,21 +30,7 @@ const App = () => {
             setNewTodo={setNewTodo}
           />
           <TodoList todos={todos} setTodos={setTodos} />
-          <div
-            className={`absolute bottom-0 flex flex-col  items-center w-full my-6 ${
-              !todos.length && 'hidden'
-            }`}
-          >
-            <div className="border border-gray-200 mt-2 mb-4 w-36"></div>
-            <div className="flex justify-center">
-              <div
-                onClick={() => setTodos([])}
-                className="text-sm text-primary btn hover:font-semibold transform hover:scale-110 hover:bg-opacity-50 transition ease-out duration-300"
-              >
-                empty list
-              </div>
-            </div>
-          </div>
+          <EmptyList todos={todos} setTodos={setTodos} />
         </div>
       </div>
     </div>
