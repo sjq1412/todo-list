@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <div className="text-gray-600 font-body bg-gray-300 h-screen w-screen flex flex-col justify-center items-center">
-      <div className="w-10/12  sm:w-96 h-2/4">
+      <div className="w-10/12  sm:w-96 md:h-2/4">
         <Header />
         <div className="bg-white h-full rounded overflow-hidden shadow relative">
           <TodoForm
